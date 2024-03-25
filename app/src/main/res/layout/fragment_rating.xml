@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/cardDetailsScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/comment_react_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:cardCornerRadius="16dp"
+            android:background="@drawable/border"
+            android:layout_margin="8dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/border"
+                >
+                <!-- Like and Dislike Buttons with Counts -->
+
+                <!-- Rating Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="rate our app"
+                        android:gravity="center"
+                        android:textColor="#838285"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+                    <RatingBar
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressBackgroundTint="#D8D7D7"
+                        android:progressTint="#EA8519"
+                        android:stepSize="1.0"
+                        android:layout_margin="5dp"
+                        />
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/rounded_button"
+                        android:textColor="@color/white"
+                        android:text="submit"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/thank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textAlignment="center"
+                        android:textColor="#29367C"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_details_cv_content_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="comments"
+                        android:textSize="20sp"
+                        android:textColor="@color/design_default_color_primary_variant"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        />
+                    <LinearLayout
+                        android:id="@+id/commentBlog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="@dimen/card_view_elevation"
+                        app:cardCornerRadius="@dimen/card_view_corner_radius"
+                        android:visibility="gone"
+                        >
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/RecyclerviewComments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/comment_react_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/card_details_content_padding">
+
+
+        <EditText
+            android:id="@+id/comment"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="write a comment"
+            android:textColor="@color/black"
+            android:padding="12dp"
+            android:autofillHints=""
+            android:inputType="text" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/post_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/baseline_send_24"
+            android:contentDescription="todo"
+            app:elevation="0dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
